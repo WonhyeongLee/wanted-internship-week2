@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react'
 
-import { Button, Form, Input, SearchBarWrapper } from './SearchBarStyle'
+import { Button, Form, Input, SearchBarWrapper } from './styles/SearchBarStyle'
 interface SearchBarProps {
   keyword: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void

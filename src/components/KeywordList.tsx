@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 
 import { KeywordListProps } from '../types/type'
 
-import { List, ListItem, ListWrapper } from './KeywordListStyle'
+import { List, ListItem, ListWrapper } from './styles/KeywordListStyle'
 
 const KeywordList: React.FC<KeywordListProps> = ({
   results,
