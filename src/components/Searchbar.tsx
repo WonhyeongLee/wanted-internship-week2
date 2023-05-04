@@ -14,7 +14,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // 키워드를 검색하는 API를 호출하는 부분
     console.log('search keyword:', keyword)
   }
   return (

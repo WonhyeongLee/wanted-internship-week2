@@ -14,7 +14,7 @@ export const SearchBarWrapper = styled.div`
   display: flex;
   width: 100%;
   position: relative;
-  padding-right: 8px;
+  padding-right: 7px;
   justify-content: space-between;
 `
 
