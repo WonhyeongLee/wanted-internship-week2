@@ -19,27 +19,27 @@ const isCacheExpired = async (
   return isExpired
 }
 
-const clearExpiredCache = async (cache: Cache): Promise<void> => {
-  const keys = await cache.keys()
+// const clearExpiredCache = async (cache: Cache): Promise<void> => {
+//   const keys = await cache.keys()
 
-  const checkCaches = keys.map(async key => {
-    const keyword = key.url
+//   const checkCaches = keys.map(async key => {
+//     const keyword = key.url
 
-    const isExpired = await isCacheExpired(cache, keyword)
-    return isExpired ? keyword : null
-  })
+//     const isExpired = await isCacheExpired(cache, keyword)
+//     return isExpired ? keyword : null
+//   })
 
-  const expiredCaches = (await Promise.all(checkCaches)).filter(
-    data => data !== null
-  ) as string[]
+//   const expiredCaches = (await Promise.all(checkCaches)).filter(
+//     data => data !== null
+//   ) as string[]
 
-  const deleteCaches = expiredCaches.map(async key => {
-    await cache.delete(key)
-    await cache.delete(`${key}_timestamp`)
-  })
+//   const deleteCaches = expiredCaches.map(async key => {
+//     await cache.delete(key)
+//     await cache.delete(`${key}_timestamp`)
+//   })
 
-  await Promise.all(deleteCaches)
-}
+//   await Promise.all(deleteCaches)
+// }
 
 export const searchWithCache = async function (
   keyword: string
@@ -47,7 +47,7 @@ export const searchWithCache = async function (
   const cache = await caches.open(cacheName)
 
   // 만료된 cache 삭제
-  await clearExpiredCache(cache)
+  // await clearExpiredCache(cache)
 
   const cachedResponse = await cache.match(keyword)
   const timestampResponse = await cache.match(`${keyword}_timestamp`)
